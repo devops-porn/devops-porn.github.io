@@ -1,15 +1,226 @@
-<!doctype html><html class=no-js lang=fr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Dorian Boulc'h & Richard Leroux"><meta name=description content="Blog ayant pour but de donner envie de pratiquer le DevOps. Peut potentiellement aider à prendre plaisir à faire de belles choses et éventuellement comme substitut au sexe."><meta name=keywords content="blog,devops,dev,développement"><meta name=generator content="Hugo 0.71.1"><title>WSL wut ? | DevOps Porn</title><meta name=description content="WSL Kesako ? Ah les introductions Wikipédia !
-Alors Windows Subsystem for Linux (WSL) ou en français sous-système Windows pour Linux est une couche de compatibilité permettant d’exécuter nativement fichiers ELF (binaires exécutables) Linux sur Windows 10 et Windows Server 2019. Pour être plus clair, WSL1 - dont la version initiale a été ajoutée lors de la mise à jour 1607 de Windows 10 - est une fonctionnalité optionnelle qui fournit aux utilisateurs un environnement léger intégrant une console Linux dans le système d’exploitation de Microsoft."><meta itemprop=name content="WSL wut ?"><meta itemprop=description content="WSL Kesako ? Ah les introductions Wikipédia !
-Alors Windows Subsystem for Linux (WSL) ou en français sous-système Windows pour Linux est une couche de compatibilité permettant d’exécuter nativement fichiers ELF (binaires exécutables) Linux sur Windows 10 et Windows Server 2019. Pour être plus clair, WSL1 - dont la version initiale a été ajoutée lors de la mise à jour 1607 de Windows 10 - est une fonctionnalité optionnelle qui fournit aux utilisateurs un environnement léger intégrant une console Linux dans le système d’exploitation de Microsoft."><meta property="og:title" content="WSL wut ?"><meta property="og:description" content="WSL Kesako ? Ah les introductions Wikipédia !
-Alors Windows Subsystem for Linux (WSL) ou en français sous-système Windows pour Linux est une couche de compatibilité permettant d’exécuter nativement fichiers ELF (binaires exécutables) Linux sur Windows 10 et Windows Server 2019. Pour être plus clair, WSL1 - dont la version initiale a été ajoutée lors de la mise à jour 1607 de Windows 10 - est une fonctionnalité optionnelle qui fournit aux utilisateurs un environnement léger intégrant une console Linux dans le système d’exploitation de Microsoft."><meta property="og:image" content="https://devops-porn.fr/article/wsl-2-wut/featuredImage.png"><meta property="fb:app_id" content="958375451364299"><meta property="og:image:width" content="512"><meta property="og:image:width" content="512"><meta property="og:url" content="https://devops-porn.fr/article/wsl-2-wut/"><meta property="og:site_name" content="DevOps Porn"><meta property="og:type" content="article"><link rel=preload href=https://devops-porn.fr/theme.css as=style><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content="#2b5797"><meta name=theme-color content="#ffffff"><link href=/article/wsl-2-wut/ rel=alternate type=application/rss+xml title="DevOps Porn"><link href=/article/wsl-2-wut/ rel=feed type=application/rss+xml title="DevOps Porn"><link rel=stylesheet href=https://devops-porn.fr/theme.css></head><body class=bilberry-hugo-theme><nav><div class=container><ul class=topnav></ul></div></nav><header><div class=container><div class=logo><a id=siteBaseUrl href=/ class=logo><img src=/logo.svg alt=Accueil></a></div><div class=titles><h3 class=title><a href=/>DevOps Porn</a></h3><span class=subtitle>Pratiquons le DevOps !</span></div></header><div class="main container"><div class="article-wrapper u-cf single"><a class=bubble href=https://devops-porn.fr/article/wsl-2-wut/><i class="fas fa-fw fa-pencil-alt"></i></a><article class="default article"><div class=featured-image><a href=https://devops-porn.fr/article/wsl-2-wut/><img srcset="/article/wsl-2-wut/featuredImage_hu556426e8afc80ab35532c0b31b0813ae_468766_700x200_fill_q95_bgffffff_box_center_2.jpg 1x,
-/article/wsl-2-wut/featuredImage_hu556426e8afc80ab35532c0b31b0813ae_468766_1400x400_fill_q95_bgffffff_box_center_2.jpg 2x" alt="Article WSL wut ?"></a></div><div class=content><h1 class=article-title><a href=https://devops-porn.fr/article/wsl-2-wut/>WSL wut ?</a></h1><div class=meta><span class="date moment">2020-06-01</span>
-<span class=author><a href=https://devops-porn.fr/author/richard/>Richard</a></span></div><h2 id=wsl-kesako->WSL Kesako ?</h2><p>Ah les introductions Wikipédia !</p><p>Alors <strong>Windows Subsystem for Linux (WSL)</strong> ou en français <strong>sous-système Windows pour Linux</strong> est une couche de compatibilité permettant d&rsquo;exécuter <strong>nativement fichiers ELF</strong> (binaires exécutables) Linux sur Windows 10 et Windows Server 2019.
-Pour être plus clair, WSL1 - dont la version initiale a été ajoutée lors de la mise à jour <a href=https://docs.microsoft.com/fr-fr/windows/whats-new/whats-new-windows-10-version-1607>1607</a> de Windows 10 - est une fonctionnalité optionnelle qui fournit aux utilisateurs un environnement léger intégrant une console Linux dans le système d&rsquo;exploitation de Microsoft.</p><p><img src=/article/wsl-2-wut/wsl2-wut-wsl1.png alt="Architecture WSL1"></p><h2 id=et-concrètement-ça-fonctionne-comment-ton-bidule->Et concrètement ça fonctionne comment ton bidule ?</h2><p>Eh bien, les binaires Linux utilisent des appels système pour effectuer de nombreuses fonctions telles que <strong>l&rsquo;accès aux fichiers, la demande de mémoire, la création de processus</strong>, etc. Dans WSL 1, la couche de traduction permet interpréter bon nombre de ces appels système et leur permet de fonctionner sur le <strong>noyau Windows NT</strong>.</p><p>Cette fonctionnalité suit les ambitions de Microsoft d’apporter nativement l&rsquo;expérience Linux dans Windows. Les systèmes d&rsquo;exploitation Linux sont très populaires pour <strong>leurs performances, leur légèreté et leur stabilité</strong>. Avec l&rsquo;implémentation du WSL, le géant de Redmond tente d&rsquo;apporter le meilleur des deux mondes au plus grand nombre.</p><h2 id=ok-cest-bien-mais-on-sen-sert-quand->Ok c’est bien mais on s’en sert quand ?</h2><p>La question serait plutôt quand n’en as-tu besoin ? Mais pour te répondre plus sérieusement voilà les principaux cas d’usage :</p><ul><li>Pour les outils en ligne de commande Linux</li><li>Pour un accès au système de fichiers Windows 10</li><li>Quand tu ne veux pas mobiliser de ressources pour faire tourner une VM en fond</li></ul><p>Le WSL permet aux développeurs et aux administrateurs système d&rsquo;utiliser <strong>les principaux outils et services en ligne de commande</strong> mais avant tout ; <strong>le shell bash</strong>. La disponibilité de gestionnaire de package tels que <code>apt</code> et <code>dpkg</code> offre aux développeurs une pléthore d&rsquo;applications GNU accessible ou installable en ligne de commande.</p><p><strong>Le système de fichiers et les lecteurs Windows 10 sont accessibles et gérés dans la console WSL elle-même</strong>. Les partitions de lecteur sont montées au lancement dans le chemin de <code>/mnt/</code>. Tu peux donc accéder à l’ensemble de tes fichiers Windows depuis WSL.</p><h2 id=tu-disais-wsl1-ils-en-ont-sorti-une-version-2->Tu disais WSL1 ils en ont sorti une version 2 ?</h2><p>Oui absolument et la crois moi ils ne se sont pas contentés de refaire la peinture. WSL2 est le digne successeur de WSL1, qui est disponible à partir de la version <a href=https://docs.microsoft.com/fr-fr/windows/whats-new/whats-new-windows-10-version-2004>2004</a> de Windows 10. <strong>L’architecture WSL2 est intrinsèquement différente de WSL1</strong>. Contrairement à WSL1, qui s&rsquo;exécute comme une <strong>couche de traduction</strong>, cette nouvelle version dispose, via une machine virtuelle, d’un réel noyau Linux qui peut immédiatement réagir aux appels système. Une telle architecture permet des capacités <strong>d&rsquo;appel Full System</strong>.</p><p>Le noyau Linux développé par Microsoft utilisé dans l&rsquo;architecture WSL2 est open source. Avec une refonte importante de son prédécesseur, WSL2 a véritablement changé, atténuant certains des inconvénients de la version originale.</p><p>Un peu de technique ! :</p><p><img src=/article/wsl-2-wut/wsl2-wut-wsl2.png alt="Architecture WSL2"></p><table><thead><tr><th>Fonctionnalité</th><th align=center>WSL1</th><th align=center>WSL2</th></tr></thead><tbody><tr><td>Intégration entre Windows et Linux</td><td align=center>✅</td><td align=center>✅</td></tr><tr><td>Temps de démarrage courts</td><td align=center>✅</td><td align=center>✅</td></tr><tr><td>Faible encombrement des ressources</td><td align=center>✅</td><td align=center>✅</td></tr><tr><td>Machine virtuelle managée</td><td align=center>❌</td><td align=center>✅</td></tr><tr><td>Noyau Linux complet</td><td align=center>❌</td><td align=center>✅</td></tr><tr><td>Compatibilité complète des appels système</td><td align=center>❌</td><td align=center>✅</td></tr><tr><td>Exécutions avec les versions actuelles de VM Ware et VirtualBox</td><td align=center>✅</td><td align=center>❌</td></tr><tr><td>Performances dans les systèmes de fichiers du système d’exploitation</td><td align=center>✅</td><td align=center>❌</td></tr></tbody></table><h2 id=ok-cest-toujours-pareil-avec-vous-les-devops-tout-nouveau-tout-beau-mais-ça-donne-quoi-à-lutilisation->Ok c’est toujours pareil avec vous les devops, tout nouveau tout beau, mais ça donne quoi à l’utilisation ?</h2><p>Pour te faire une idée, je ne saurai trop te recommander de lire le <a href=./article/wsl2-docker-symfony5/>retour d’expérience de Dorian</a> !</p><p>Passons en revue ces améliorations un peu plus en détail et voyons en quoi cela améliore ton expérience :</p><ul><li>Un véritable noyau Linux ;</li><li>Une capacité d&rsquo;appel système complète ;</li><li>Des performances de socket / réseau ;</li><li>Des performances du système de fichiers.</li></ul><p>Il s’agit d’une <strong>refonte majeure du concept original de WSL</strong>, passant de la traduction des appels système Linux à la livraison dans Windows d’un noyau Linux complet.
-Le fait d&rsquo;avoir un hyperviseur natif aide l&rsquo;implémentation d’éliminer tous les inconvénients de WSL1.</p><p>Par exemple, la disponibilité d&rsquo;un véritable noyau Linux permet à l&rsquo;utilisateur de s’assurer la compatibilité complète des appels système. Ainsi, la plate-forme devient beaucoup plus puissante pour gérer <strong>les applications Linux, comme Docker (❤️) par exemple</strong>.</p><p>Les performances d&rsquo;E / S de fichiers sont nettement améliorées. Par conséquent, les opérations telles que <code>apt installs</code>, <code>npm installs</code> sont plus rapides, cela devrait également être le cas pour tous les services de lecture et d&rsquo;écriture.</p><p><img src=/article/wsl-2-wut/wsl2-wut-performance.png alt=alt_text></p><p>Enfin, une simple ligne de commande permet le changement de version. Parallèlement à cela, les performances de mise en réseau et de socket ont connu des améliorations considérables.</p><h2 id=génial-on-linstalle-maintenant->Génial, on l&rsquo;installe maintenant ?</h2><p>L’installation et l’utilisation seront les sujets de mon prochain billet. Alors d’ici-là, et comme je te sens enthousiaste, je te propose quelques ressources complémentaires à lire :</p><ul><li><a href=https://docs.microsoft.com/fr-fr/windows/wsl/>Documentation sur le sous-système Windows pour Linux</a></li><li><a href=http://doc.ubuntu-fr.org/wsl>Sous-système Windows pour Linux : Ubuntu sur Windows</a></li><li><a href=https://windows.developpez.com/actu/302543/Premieres-impressions-sur-WSL-2-13-fois-plus-rapide-que-WSL-1-et-introduit-une-nouvelle-ere-pour-le-developpement-Web-sous-Windows-selon-un-developpeur/>Premières impressions sur WSL 2 : 13 fois plus rapide que WSL 1</a></li></ul></div><div class=footer><div class=tags><i class="fa fa-tags"></i><div class=links><a href=https://devops-porn.fr/tags/windows/>Windows</a>
+<!doctype html><html class=no-js lang=fr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=author content="Dorian Boulc'h & Richard Leroux">
+<meta name=description content="Blog ayant pour but de donner envie de pratiquer le DevOps. Peut potentiellement aider à prendre plaisir à faire de belles choses et éventuellement comme substitut au sexe.">
+<meta name=keywords content="blog,devops,dev,développement">
+<meta name=generator content="Hugo 0.89.4">
+<title> WSL wut ? | DevOps Porn</title>
+<meta name=description content="WSL Kesako ? Ah les introductions Wikipédia !
+Alors Windows Subsystem for Linux (WSL) ou en français sous-système Windows pour Linux est une couche de compatibilité permettant d’exécuter nativement fichiers ELF (binaires exécutables) Linux sur Windows 10 et Windows Server 2019. Pour être plus clair, WSL1 - dont la version initiale a été ajoutée lors de la mise à jour 1607 de Windows 10 - est une fonctionnalité optionnelle qui fournit aux utilisateurs un environnement léger intégrant une console Linux dans le système d’exploitation de Microsoft.
+">
+<meta itemprop=name content="WSL wut ?">
+<meta itemprop=description content="WSL Kesako ? Ah les introductions Wikipédia !
+Alors Windows Subsystem for Linux (WSL) ou en français sous-système Windows pour Linux est une couche de compatibilité permettant d’exécuter nativement fichiers ELF (binaires exécutables) Linux sur Windows 10 et Windows Server 2019. Pour être plus clair, WSL1 - dont la version initiale a été ajoutée lors de la mise à jour 1607 de Windows 10 - est une fonctionnalité optionnelle qui fournit aux utilisateurs un environnement léger intégrant une console Linux dans le système d’exploitation de Microsoft.
+">
+<meta property="og:title" content="WSL wut ?">
+<meta property="og:description" content="WSL Kesako ? Ah les introductions Wikipédia !
+Alors Windows Subsystem for Linux (WSL) ou en français sous-système Windows pour Linux est une couche de compatibilité permettant d’exécuter nativement fichiers ELF (binaires exécutables) Linux sur Windows 10 et Windows Server 2019. Pour être plus clair, WSL1 - dont la version initiale a été ajoutée lors de la mise à jour 1607 de Windows 10 - est une fonctionnalité optionnelle qui fournit aux utilisateurs un environnement léger intégrant une console Linux dans le système d’exploitation de Microsoft.
+">
+<meta property="og:image" content="https://devops-porn.fr/article/wsl-2-wut/featuredImage.png"><meta property="fb:app_id" content="958375451364299"><meta property="og:image:width" content="512">
+<meta property="og:image:width" content="512"><meta property="og:url" content="https://devops-porn.fr/article/wsl-2-wut/">
+<meta property="og:site_name" content="DevOps Porn">
+<meta property="og:type" content="article">
+<link rel=preload href=https://devops-porn.fr/theme.css as=style>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<meta name=msapplication-TileColor content="#2b5797">
+<meta name=theme-color content="#ffffff">
+<link href=/article/wsl-2-wut/ rel=alternate type=application/rss+xml title="DevOps Porn">
+<link href=/article/wsl-2-wut/ rel=feed type=application/rss+xml title="DevOps Porn">
+<link rel=stylesheet href=https://devops-porn.fr/theme.css>
+</head>
+<body class=bilberry-hugo-theme>
+<nav>
+<div class=container>
+<ul class=topnav>
+</ul>
+</div>
+</nav>
+<header>
+<div class=container>
+<div class=logo>
+<a id=siteBaseUrl href=/ class=logo>
+<img src=/logo.svg alt=Accueil>
+</a>
+</div>
+<div class=titles>
+<h3 class=title><a href=/>DevOps Porn</a></h3>
+<span class=subtitle>Pratiquons le DevOps !</span>
+</div>
+</header>
+<div class="main container">
+<div class="article-wrapper u-cf single">
+<a class=bubble href=https://devops-porn.fr/article/wsl-2-wut/>
+<i class="fas fa-fw fa-pencil-alt"></i>
+</a>
+<article class="default article">
+<div class=featured-image>
+<a href=https://devops-porn.fr/article/wsl-2-wut/>
+<img srcset="/article/wsl-2-wut/featuredImage_hu556426e8afc80ab35532c0b31b0813ae_468766_700x200_fill_q95_bgffffff_box_center_3.jpg 1x,
+/article/wsl-2-wut/featuredImage_hu556426e8afc80ab35532c0b31b0813ae_468766_1400x400_fill_q95_bgffffff_box_center_3.jpg 2x" alt="Article WSL wut ?">
+</a>
+</div>
+<div class=content>
+<h1 class=article-title><a href=https://devops-porn.fr/article/wsl-2-wut/>WSL wut ?</a></h1>
+<div class=meta>
+<span class="date moment">2020-06-01</span>
+<span class=author>
+<a href=https://devops-porn.fr/author/richard/>Richard</a>
+</span>
+</div>
+<h2 id=wsl-kesako->WSL Kesako ?</h2>
+<p>Ah les introductions Wikipédia !</p>
+<p>Alors <strong>Windows Subsystem for Linux (WSL)</strong> ou en français <strong>sous-système Windows pour Linux</strong> est une couche de compatibilité permettant d&rsquo;exécuter <strong>nativement fichiers ELF</strong> (binaires exécutables) Linux sur Windows 10 et Windows Server 2019.
+Pour être plus clair, WSL1 - dont la version initiale a été ajoutée lors de la mise à jour <a href=https://docs.microsoft.com/fr-fr/windows/whats-new/whats-new-windows-10-version-1607>1607</a> de Windows 10 - est une fonctionnalité optionnelle qui fournit aux utilisateurs un environnement léger intégrant une console Linux dans le système d&rsquo;exploitation de Microsoft.</p>
+<p><img src=/article/wsl-2-wut/wsl2-wut-wsl1.png alt="Architecture WSL1"></p>
+<h2 id=et-concrètement-ça-fonctionne-comment-ton-bidule->Et concrètement ça fonctionne comment ton bidule ?</h2>
+<p>Eh bien, les binaires Linux utilisent des appels système pour effectuer de nombreuses fonctions telles que <strong>l&rsquo;accès aux fichiers, la demande de mémoire, la création de processus</strong>, etc. Dans WSL 1, la couche de traduction permet interpréter bon nombre de ces appels système et leur permet de fonctionner sur le <strong>noyau Windows NT</strong>.</p>
+<p>Cette fonctionnalité suit les ambitions de Microsoft d’apporter nativement l&rsquo;expérience Linux dans Windows. Les systèmes d&rsquo;exploitation Linux sont très populaires pour <strong>leurs performances, leur légèreté et leur stabilité</strong>. Avec l&rsquo;implémentation du WSL, le géant de Redmond tente d&rsquo;apporter le meilleur des deux mondes au plus grand nombre.</p>
+<h2 id=ok-cest-bien-mais-on-sen-sert-quand->Ok c’est bien mais on s’en sert quand ?</h2>
+<p>La question serait plutôt quand n’en as-tu besoin ? Mais pour te répondre plus sérieusement voilà les principaux cas d’usage :</p>
+<ul>
+<li>Pour les outils en ligne de commande Linux</li>
+<li>Pour un accès au système de fichiers Windows 10</li>
+<li>Quand tu ne veux pas mobiliser de ressources pour faire tourner une VM en fond</li>
+</ul>
+<p>Le WSL permet aux développeurs et aux administrateurs système d&rsquo;utiliser <strong>les principaux outils et services en ligne de commande</strong> mais avant tout ; <strong>le shell bash</strong>. La disponibilité de gestionnaire de package tels que <code>apt</code> et <code>dpkg</code> offre aux développeurs une pléthore d&rsquo;applications GNU accessible ou installable en ligne de commande.</p>
+<p><strong>Le système de fichiers et les lecteurs Windows 10 sont accessibles et gérés dans la console WSL elle-même</strong>. Les partitions de lecteur sont montées au lancement dans le chemin de <code>/mnt/</code>. Tu peux donc accéder à l’ensemble de tes fichiers Windows depuis WSL.</p>
+<h2 id=tu-disais-wsl1-ils-en-ont-sorti-une-version-2->Tu disais WSL1 ils en ont sorti une version 2 ?</h2>
+<p>Oui absolument et la crois moi ils ne se sont pas contentés de refaire la peinture. WSL2 est le digne successeur de WSL1, qui est disponible à partir de la version <a href=https://docs.microsoft.com/fr-fr/windows/whats-new/whats-new-windows-10-version-2004>2004</a> de Windows 10. <strong>L’architecture WSL2 est intrinsèquement différente de WSL1</strong>. Contrairement à WSL1, qui s&rsquo;exécute comme une <strong>couche de traduction</strong>, cette nouvelle version dispose, via une machine virtuelle, d’un réel noyau Linux qui peut immédiatement réagir aux appels système. Une telle architecture permet des capacités <strong>d&rsquo;appel Full System</strong>.</p>
+<p>Le noyau Linux développé par Microsoft utilisé dans l&rsquo;architecture WSL2 est open source. Avec une refonte importante de son prédécesseur, WSL2 a véritablement changé, atténuant certains des inconvénients de la version originale.</p>
+<p>Un peu de technique ! :</p>
+<p><img src=/article/wsl-2-wut/wsl2-wut-wsl2.png alt="Architecture WSL2"></p>
+<table>
+<thead>
+<tr>
+<th>Fonctionnalité</th>
+<th style=text-align:center>WSL1</th>
+<th style=text-align:center>WSL2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intégration entre Windows et Linux</td>
+<td style=text-align:center>✅</td>
+<td style=text-align:center>✅</td>
+</tr>
+<tr>
+<td>Temps de démarrage courts</td>
+<td style=text-align:center>✅</td>
+<td style=text-align:center>✅</td>
+</tr>
+<tr>
+<td>Faible encombrement des ressources</td>
+<td style=text-align:center>✅</td>
+<td style=text-align:center>✅</td>
+</tr>
+<tr>
+<td>Machine virtuelle managée</td>
+<td style=text-align:center>❌</td>
+<td style=text-align:center>✅</td>
+</tr>
+<tr>
+<td>Noyau Linux complet</td>
+<td style=text-align:center>❌</td>
+<td style=text-align:center>✅</td>
+</tr>
+<tr>
+<td>Compatibilité complète des appels système</td>
+<td style=text-align:center>❌</td>
+<td style=text-align:center>✅</td>
+</tr>
+<tr>
+<td>Exécutions avec les versions actuelles de VM Ware et VirtualBox</td>
+<td style=text-align:center>✅</td>
+<td style=text-align:center>❌</td>
+</tr>
+<tr>
+<td>Performances dans les systèmes de fichiers du système d’exploitation</td>
+<td style=text-align:center>✅</td>
+<td style=text-align:center>❌</td>
+</tr>
+</tbody>
+</table>
+<h2 id=ok-cest-toujours-pareil-avec-vous-les-devops-tout-nouveau-tout-beau-mais-ça-donne-quoi-à-lutilisation->Ok c’est toujours pareil avec vous les devops, tout nouveau tout beau, mais ça donne quoi à l’utilisation ?</h2>
+<p>Pour te faire une idée, je ne saurai trop te recommander de lire le <a href=./article/wsl2-docker-symfony5/>retour d’expérience de Dorian</a> !</p>
+<p>Passons en revue ces améliorations un peu plus en détail et voyons en quoi cela améliore ton expérience :</p>
+<ul>
+<li>Un véritable noyau Linux ;</li>
+<li>Une capacité d&rsquo;appel système complète ;</li>
+<li>Des performances de socket / réseau ;</li>
+<li>Des performances du système de fichiers.</li>
+</ul>
+<p>Il s’agit d’une <strong>refonte majeure du concept original de WSL</strong>, passant de la traduction des appels système Linux à la livraison dans Windows d’un noyau Linux complet.
+Le fait d&rsquo;avoir un hyperviseur natif aide l&rsquo;implémentation d’éliminer tous les inconvénients de WSL1.</p>
+<p>Par exemple, la disponibilité d&rsquo;un véritable noyau Linux permet à l&rsquo;utilisateur de s’assurer la compatibilité complète des appels système. Ainsi, la plate-forme devient beaucoup plus puissante pour gérer <strong>les applications Linux, comme Docker (❤️) par exemple</strong>.</p>
+<p>Les performances d&rsquo;E / S de fichiers sont nettement améliorées. Par conséquent, les opérations telles que <code>apt installs</code>, <code>npm installs</code> sont plus rapides, cela devrait également être le cas pour tous les services de lecture et d&rsquo;écriture.</p>
+<p><img src=/article/wsl-2-wut/wsl2-wut-performance.png alt=alt_text></p>
+<p>Enfin, une simple ligne de commande permet le changement de version. Parallèlement à cela, les performances de mise en réseau et de socket ont connu des améliorations considérables.</p>
+<h2 id=génial-on-linstalle-maintenant->Génial, on l&rsquo;installe maintenant ?</h2>
+<p>L’installation et l’utilisation seront les sujets de mon prochain billet. Alors d’ici-là, et comme je te sens enthousiaste, je te propose quelques ressources complémentaires à lire :</p>
+<ul>
+<li><a href=https://docs.microsoft.com/fr-fr/windows/wsl/>Documentation sur le sous-système Windows pour Linux</a></li>
+<li><a href=http://doc.ubuntu-fr.org/wsl>Sous-système Windows pour Linux : Ubuntu sur Windows</a></li>
+<li><a href=https://windows.developpez.com/actu/302543/Premieres-impressions-sur-WSL-2-13-fois-plus-rapide-que-WSL-1-et-introduit-une-nouvelle-ere-pour-le-developpement-Web-sous-Windows-selon-un-developpeur/>Premières impressions sur WSL 2 : 13 fois plus rapide que WSL 1</a></li>
+</ul>
+</div>
+<div class=footer>
+<div class=tags>
+<i class="fa fa-tags"></i>
+<div class=links>
+<a href=https://devops-porn.fr/tags/windows/>Windows</a>
 <a href=https://devops-porn.fr/tags/linux/>Linux</a>
 <a href=https://devops-porn.fr/tags/wsl/>WSL</a>
 <a href=https://devops-porn.fr/tags/wsl1/>WSL1</a>
-<a href=https://devops-porn.fr/tags/wsl2/>WSL2</a></div></div></div></article></div><div id=comments-container></div></div><footer><div class=container><div class=recent-posts><strong>Derniers articles</strong><ul><li><a href=https://devops-porn.fr/article/intro-gpg/>Communiquons de façon sécurisée avec GPG</a></li><li><a href=https://devops-porn.fr/article/git-config-pro-perso/>Ne plus se tromper de profil Git !</a></li><li><a href=https://devops-porn.fr/article/wsl-2-wut/>WSL wut ?</a></li><li><a href=https://devops-porn.fr/article/wsl2-docker-symfony5/>Performances Symfony 5 sous Docker Desktop avec WSL2</a></li></ul></div><div class=right></div></div></footer><div class=credits><div class=container><div class=copyright><a href=https://github.com/devops-porn/ target=_blank rel=noreferrer>&copy;
+<a href=https://devops-porn.fr/tags/wsl2/>WSL2</a>
+</div>
+</div>
+</div>
+</article>
+</div>
+<div id=comments-container>
+</div>
+</div>
+<footer>
+<div class=container>
+<div class=recent-posts>
+<strong>Derniers articles</strong>
+<ul>
+<li>
+<a href=https://devops-porn.fr/article/intro-gpg/>Communiquons de façon sécurisée avec GPG</a>
+</li>
+<li>
+<a href=https://devops-porn.fr/article/git-config-pro-perso/>Ne plus se tromper de profil Git !</a>
+</li>
+<li>
+<a href=https://devops-porn.fr/article/wsl-2-wut/>WSL wut ?</a>
+</li>
+<li>
+<a href=https://devops-porn.fr/article/wsl2-docker-symfony5/>Performances Symfony 5 sous Docker Desktop avec WSL2</a>
+</li>
+</ul>
+</div>
+<div class=right>
+</div>
+</div>
+</footer>
+<div class=credits>
+<div class=container>
+<div class=copyright>
+<a href=https://github.com/devops-porn/ target=_blank rel=noreferrer>
+&copy;
 2021
-by a DevOps team</a></div></div></div><script async src="https://www.googletagmanager.com/gtag/js?id=UA-169407142-1"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','UA-169407142-1');</script></body></html>
+by a DevOps team
+</a>
+</div>
+</div>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-169407142-1"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','UA-169407142-1')</script>
+</body>
+</html>
