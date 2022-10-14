@@ -1,0 +1,35 @@
+@charset "UTF-8";
+.admonition {
+  position: relative;
+  padding-top: 2em;
+  margin-bottom: 1em;
+  border-top-left-radius: 1em;
+  border-bottom-right-radius: 1em; }
+  .admonition.note {
+    border: 1px dashed #ffaecc; }
+    .admonition.note .title {
+      color: #c8004a;
+      background-color: #ffaecc; }
+      .admonition.note .title:before {
+        content: "";
+        font: var(--fa-font-regular); }
+  .admonition.warning {
+    border: 1px dashed #ffb900; }
+    .admonition.warning .title {
+      color: #795300;
+      background-color: #ffb900; }
+      .admonition.warning .title:before {
+        content: "";
+        font: var(--fa-font-solid); }
+  .admonition .title {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 0.25em 2em 0.25em 1em;
+    border-top-left-radius: 1em;
+    border-bottom-right-radius: 1em; }
+    .admonition .title:before {
+      display: inline;
+      margin-right: 0.5em; }
+  .admonition .admonition-content {
+    padding: 1em; }
